@@ -73,6 +73,8 @@ public class UsersResource {
 
     }
 
+    /*
+
     @GET
     @Path("/verObras")
     @Produces(MediaType.APPLICATION_JSON)
@@ -126,9 +128,10 @@ public class UsersResource {
 
     }
 
+    */
 
 
-/*
+
 
     @POST
     @Path("/CrearObra")
@@ -138,9 +141,10 @@ public class UsersResource {
 
         String contextPath = context.getRealPath("") + File.separator;
         Statement stmt = null;
-        String DB_URL = "jdbc:postgresql://localhost/Proyecto";
+        String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "1234";
+        String PASS = "sebastianmp2001";
+
 
         try {
 
@@ -149,24 +153,26 @@ public class UsersResource {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             // Executing a SQL query
-            System.out.println("El usuario es " + obra.getUsername());
-            System.out.println("El tiulo es " + obra.getTitulo());
-            System.out.println("El precio es " + obra.getPrecio());
-            System.out.println("El nombre de la imagen es " + obra.getNombreimg());
+            System.out.println("El id de la obra es " + obra.getId());
+            System.out.println("El nombre de la obra es " + obra.getName());
+            System.out.println("El precio de la obra es " + obra.getPrice());
+            System.out.println("La url de la imagen es  " + obra.getImagepath());
+            System.out.println("Se encuentra a la venta?  " + obra.getForsale());
+            System.out.println("Le coleccion es  :  " + obra.getCollection());
 
 
             stmt = conn.createStatement();
-            String sql = "INSERT INTO obra (username,titulo,precio,nombreimg)" +
-                    "values " + "('" + obra.getUsername() + "','" + obra.getTitulo() + "'," + obra.getPrecio() + ",'" + obra.getNombreimg() + "')";
+            String sql = "INSERT INTO art (name,price,imagepath,forsale)" +
+                    "values " + "('" + obra.getName() + "','" + obra.getPrice() + "'," + obra.getImagepath() + ",'" + obra.getForsale() + "')";
 
-            //System.out.println("comando para insertar obra ->  "+sql);
+            System.out.println("comando para insertar obra ->  "+sql);
 
             ResultSet rs = stmt.executeQuery(sql);
 
             rs.close();
             stmt.close();
 
-            return Response.created(UriBuilder.fromResource(UsersResource.class).path(obra.getUsername()).build())
+            return Response.created(UriBuilder.fromResource(UsersResource.class).path(obra.getName()).build())
                     .entity(obra)
                     .build();
         } catch (SQLException e) {
@@ -175,7 +181,7 @@ public class UsersResource {
             throw new RuntimeException(e);
         }
     }
-*/
+
 
     @POST
     @Path("/recargar")

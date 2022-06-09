@@ -116,19 +116,15 @@
                             <form  id="formObra">
 
                                 <div class="form-group first">
-                                    <label for="username">Usuario</label>
-                                    <input type="text" name="username"class="form-control"placeholder="Ingrese el nombre de usuario" id="username"/>
+                                    <label for="name">Nombre de la obra </label>
+                                    <input type="text" name="name"class="form-control"placeholder="Ingrese el nombre de la obra" id="name"/>
                                 </div>
 
                                 <div class="form-group first">
-                                    <label for="titulo">Titulo de la obra</label>
-                                    <input type="text" name="titulo"class="form-control"placeholder="Ingrese el nombre de la obra" id="titulo"/>
+                                    <label for="price">Precio de la obra</label>
+                                    <input type="number" name="price"class="form-control"placeholder="Ingrese el precio de la obra" id="price"/>
                                 </div>
 
-                                <div class="form-group first">
-                                    <label for="precio">Precio de la obra</label>
-                                    <input type="number" name="precio" class="form-control"placeholder="Ingrese el valor de la obra " id="precio"/>
-                                </div>
 
                                 <div class="form-group first">
                                     <label for="file">Imagen </label>
@@ -140,8 +136,20 @@
                                     <input type="text" name="filename"class="form-control"  id="filename" />
                                 </div>
 
+
+                                <div class="form-group first">
+                                    <label for="forsale">En venta</label>
+
+                                    <select name="forsale" id="forsale" class="form-control">
+                                        <option value="0" >No</option>
+                                        <option value="1">Si</option>
+                                    </select>
+
+                                </div>
+
                                 <input type="submit" id="encode"value="Enviar" class="btn btn-block btn-primary">
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -181,10 +189,10 @@
                 // var form = document.forms[0];
 
                 data = {
-                    username: form.querySelector('input[name="username"]').value,
-                    titulo: form.querySelector('input[name="titulo"]').value,
-                    precio: form.querySelector('input[name="precio"]').value,
-                    nombreimg: form.querySelector('input[name="filename"]').value
+                    name: form.querySelector('input[name="name"]').value,
+                    price: form.querySelector('input[name="price"]').value,
+                    imagepath: form.querySelector('input[name="filename"]').value,
+                    forsale: form.querySelector('input[name="forsale"]').value
 
                 }
 
@@ -194,9 +202,11 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(data),
-                })
 
-                window.alert("Obra registrada existosamente ");
+                })
+                console.log(data)
+
+//                window.alert("Obra registrada existosamente ");
                 let text = await response.text(); // read response body as text
                 document.querySelector("#decoded").innerHTML = text;
 
