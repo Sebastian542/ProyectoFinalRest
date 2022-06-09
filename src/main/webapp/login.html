@@ -86,22 +86,22 @@
             .then(data2 => {
                 console.log(data2);
 
-                console.log(data2.name + "name");
-                localStorage.setItem("name",data2.name);
-                console.log("Localstorage error " + localStorage.getItem("name"));
 
-                console.log(data2.role + "role");
+                localStorage.setItem("name",data2.name);
+                console.log("Localstorage name: " + localStorage.getItem("name"));
+                localStorage.setItem("email",data2.email);
+                console.log("Localstorage email: " + localStorage.getItem("email"));
                 localStorage.setItem("role",data2.role);
-                console.log("Localstorage error" + localStorage.getItem("role"));
+                console.log("Localstorage role: " + localStorage.getItem("role"));
 
 
                 if(data2.role =="Administrador"){
 
-                    window.location.href = "./home.jsp";
+                    window.location.href = "home.html";
 
                 }else if(data2.role =="Artista"){
 
-                    window.location.href = "./home2.jsp";
+                    window.location.href = "home2.html";
 
                 }
             })
