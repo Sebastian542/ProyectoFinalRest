@@ -68,22 +68,26 @@
         e.preventDefault();
 
         // Making the request
-         var data={
-             "email": document.getElementById("email").value,
-             "password": document.getElementById("password").value
-         }
+        var data={
+            "email": document.getElementById("email").value,
+            "password": document.getElementById("password").value
+        }
 
         let response = await fetch("./api/users/autenticar", {
             method: "POST",
             headers:{
-            "Content-type":"application/json"
+                "Content-type":"application/json"
             },
             body: JSON.stringify(data)
 
         })
             .then(res => res.json())
             .then(data2 => {
-
+                console.log(data2.role + "role");
+                localStorage.setItem("role",data2.role);
+                console.log("Localstorage error" + localStorage.getItem("role"));
+                localStorage.setItem("name",data2.name);
+                console.log("nameerror: " + localStorage.getItem("name"));
                 if(data2.role =="Administrador"){
 
                     window.location.href = "./home.jsp";
