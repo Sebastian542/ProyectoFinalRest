@@ -1,4 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,7 +112,8 @@
     <main id="main">
         <div class="container-fluid px-4" id="contenedorrol">
 
-            <h1 class="mt-4" id="name">  Hello</h1>
+            <h1 id="name"> Hello </h1>
+            <h2 id="email"></h2>
             <h3 id="role">"Your role is  </h3>
 
 
@@ -208,12 +208,15 @@
     console.log("Se ejecuta el js");
     var name = document.getElementById("name");
     var role = document.getElementById("role");
+    var email = document.getElementById("email");
 
     name.innerText = localStorage.getItem("name");
     role.innerText = localStorage.getItem("role");
+    email.innerText = localStorage.getItem("email")
 
     console.log("El nombre es : "+name.innerText);
     console.log("El rol es : "+role.innerText);
+    console.log("El rol es : "+email.innerText);
 
 </script>
 

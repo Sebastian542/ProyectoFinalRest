@@ -1,4 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -75,14 +74,14 @@
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                     </a>
                                     
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                    <div class="collapse" id="pagesCollapseAuth1" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="register.html">Registro de obras</a>
                                            
                                         </nav>
                                     </div>
                                     
-                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                     <div class="collapse" id="pagesCollapseAuth2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="result.html">Ver  obras</a>
                                            
@@ -94,24 +93,23 @@
                                         Error
                                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                     </a>
-                         
                                 </nav>
                             </div>
-                          
                     </div>
-                    
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">   <%= "Hello, "+ request.getParameter("username") + "!"  %></h1>
-                         <h3><%= "Your role is " + request.getAttribute("role")%></h3>
+                <main id="main">
+                    <div class="container-fluid px-4" id="contenedorrol">
+                    
+                        <h1 id="name"> Hello </h1>
+                        <h2 id="email"></h2>
+                        <h3 id="role">"Your role is  </h3>
                         
                         
                         
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">prueba</li>
+                            <li class="breadcrumb-item active">prueba 2</li>
                         </ol>
         
                         <div class="row">
@@ -228,6 +226,23 @@
                     </div>
                 </footer>
             </div>
+
+        <script>
+
+            console.log("Se ejecuta el js");
+            var name = document.getElementById("name");
+            var role = document.getElementById("role");
+            var email = document.getElementById("email");
+
+            name.innerText = localStorage.getItem("name");
+            role.innerText = localStorage.getItem("role");
+            email.innerText = localStorage.getItem("email")
+
+            console.log("El nombre es : "+name.innerText);
+            console.log("El rol es : "+role.innerText);
+            console.log("El rol es : "+email.innerText);
+
+        </script>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="assets/js/scripts.js"></script>

@@ -35,7 +35,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
 
         try {
@@ -85,7 +85,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
 
         try {
@@ -144,7 +144,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
 
         try {
@@ -192,9 +192,9 @@ public class UsersResource {
 
         String contextPath = context.getRealPath("") + File.separator;
         Statement stmt = null;
-        String DB_URL = "jdbc:postgresql://localhost/Proyecto";
+        String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "1234";
+        String PASS = "123";
 
         try {
             //  user = new UserService().createUser(user.getUsername(),user.getPassword(), user.getRole(), contextPath);
@@ -235,7 +235,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
         try {
 
@@ -271,7 +271,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
 
         try {
