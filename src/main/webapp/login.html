@@ -70,7 +70,8 @@
         // Making the request
         var data={
             "email": document.getElementById("email").value,
-            "password": document.getElementById("password").value
+            "password": document.getElementById("password").value,
+            "name":document.getElementById("name").value
         }
 
         let response = await fetch("./api/users/autenticar", {

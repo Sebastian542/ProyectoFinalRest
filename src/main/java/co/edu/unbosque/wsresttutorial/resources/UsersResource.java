@@ -163,7 +163,7 @@ public class UsersResource {
 
             stmt = conn.createStatement();
             String sql = "INSERT INTO art (name,price,imagepath,forsale)" +
-                    "values " + "('" + obra.getName() + "','" + obra.getPrice() + "'," + obra.getImagepath() + ",'" + obra.getForsale() + "')";
+                    "values " + "('" + obra.getName() + "'," + obra.getPrice() + "," + obra.getImagepath() + "," + obra.getForsale() + ")";
 
             System.out.println("comando para insertar obra ->  "+sql);
 
@@ -234,7 +234,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "1234";
+        String PASS = "sebastianmp2001";
 
         try {
 

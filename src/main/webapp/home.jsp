@@ -112,7 +112,7 @@
 <div id="layoutSidenav_content">
     <main id="main">
         <div class="container-fluid px-4" id="contenedorrol">
-            <h1 class="mt-4" id="name">   <%= "Hello, "+ request.getParameter("name") + "!"  %></h1>
+            <h1 class="mt-4" id="name">   <%= "Hello, "+ request.getAttribute("name") + "!"  %></h1>
             <h3 id="role"><%= "Your role is " + request.getAttribute("role")%></h3>
 
             rs.get
@@ -203,25 +203,16 @@
 </div>
 
 <script>
-    var divlayoutSidenav_content = document.getElementById("layoutSidenav_content");
+
+
     var name = document.getElementById("name");
-    var divmain = document.getElementById("main");
-    var divcontenedorrol = document.getElementById("contenedorrol");
     var role = document.getElementById("role");
-    var row = document.getElementById("row");
-    var row1 = document.getElementById("row1");
-    var row2 = document.getElementById("row2");
-    var row3 = document.getElementById("row3");
+
     role.innerText = localStorage.getItem("role");
     name.innerText = localStorage.getItem("name");
-    divcontenedorrol.appendChild(name);
-    divcontenedorrol.appendChild(role);
-    divcontenedorrol.appendChild(row);
-    divcontenedorrol.appendChild(row1);
-    divcontenedorrol.appendChild(row2);
-    divcontenedorrol.appendChild(row3);
-    divmain.appendChild(divcontenedorrol);
-    divlayoutSidenav_content.appendChild(divmain);
+    //divcontenedorrol.appendChild(name);
+   // divcontenedorrol.appendChild(role);
+
 
 </script>
 
