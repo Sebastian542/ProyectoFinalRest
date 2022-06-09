@@ -7,11 +7,11 @@ public class Obra {
     private float price;
     private String imagepath;
     private boolean forsale;
-    private String collection;
+    private int collection;
 
     public Obra() {
     }
-    public Obra(int id, String name, float price, String imagepath, boolean forsale, String collection) {
+    public Obra(int id, String name, float price, String imagepath, boolean forsale, int collection) {
 
         this.id = id;
         this.name = name;
@@ -72,12 +72,12 @@ public class Obra {
     }
 
 
-    public String getCollection() {
+    public int getCollection() {
         return collection;
     }
 
 
-    public void setCollection(String collection) {
+    public void setCollection(int collection) {
         this.collection = collection;
     }
 

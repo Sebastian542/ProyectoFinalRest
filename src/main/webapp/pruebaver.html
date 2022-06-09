@@ -35,10 +35,15 @@
         .then(data => {
             console.log(data)
             data.map(obra => {
+                let contenedor=document.createElement("div");
 
                 let img= document.createElement("img");
                 img.src = "./assets/img/Obras/" + obra.imagenurl+".jpg";
-                conteiner.appendChild(img).classList.toggle("myStyle");;
+
+
+                contenedor.appendChild(img)
+                conteiner.appendChild(contenedor);
+
             });
         });
 

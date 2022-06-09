@@ -112,10 +112,11 @@
 <div id="layoutSidenav_content">
     <main id="main">
         <div class="container-fluid px-4" id="contenedorrol">
-            <h1 class="mt-4" id="name">   <%= "Hello, "+ request.getAttribute("name") + "!"  %></h1>
-            <h3 id="role"><%= "Your role is " + request.getAttribute("role")%></h3>
 
-            rs.get
+            <h1 class="mt-4" id="name">  Hello</h1>
+            <h3 id="role">"Your role is  </h3>
+
+
 
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">prueba</li>
@@ -204,15 +205,15 @@
 
 <script>
 
-
+    console.log("Se ejecuta el js");
     var name = document.getElementById("name");
     var role = document.getElementById("role");
 
-    role.innerText = localStorage.getItem("role");
     name.innerText = localStorage.getItem("name");
-    //divcontenedorrol.appendChild(name);
-   // divcontenedorrol.appendChild(role);
+    role.innerText = localStorage.getItem("role");
 
+    console.log("El nombre es : "+name.innerText);
+    console.log("El rol es : "+role.innerText);
 
 </script>
 

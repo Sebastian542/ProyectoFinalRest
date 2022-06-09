@@ -73,7 +73,7 @@ public class UsersResource {
 
     }
 
-    /*
+
 
     @GET
     @Path("/verObras")
@@ -83,7 +83,7 @@ public class UsersResource {
 
         String contextPath = context.getRealPath("") + File.separator;
         Statement stmt = null;
-        String DB_URL = "jdbc:postgresql://localhost/Proyecto";
+        String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
         String PASS = "sebastianmp2001";
 
@@ -97,7 +97,7 @@ public class UsersResource {
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
-            String sql = "SELECT*FROM obra";
+            String sql = "SELECT*FROM art";
             System.out.println("comando enviado "+sql);
 
             ResultSet rs = stmt.executeQuery(sql);
@@ -105,15 +105,16 @@ public class UsersResource {
 
             while (rs.next()) {
                 // Extracting row values by column name
-                int idusuario= rs.getInt("idusuario");
-                String tobra=rs.getString("tobra");
-                Float precio=rs.getFloat("precio");
-                int idfactura=rs.getInt("idfactura");
-                int idtipoarte=rs.getInt("idtipoarte");
-                String imagenurl=rs.getString("imagenurl");
+
+                int id= rs.getInt("id");
+                String name=rs.getString("name");
+                Float price=rs.getFloat("price");
+                String imagepath=rs.getString("imagepath");
+                boolean forsale=rs.getBoolean("forsale");
+                int collection=rs.getInt("collection");
 
 
-                userApps.add(new Obra(idusuario,tobra,precio,idfactura,idtipoarte,imagenurl));
+                userApps.add(new Obra(id,name,price,imagepath,forsale,collection));
             }
 
 
@@ -128,7 +129,7 @@ public class UsersResource {
 
     }
 
-    */
+
 
 
 
@@ -297,7 +298,6 @@ public class UsersResource {
             }
 
             String email = userx.getEmail();
-            System.out.println(email);
             String password = userx.getPassword();
 
 
