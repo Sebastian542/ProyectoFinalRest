@@ -183,7 +183,7 @@
 
 
 
-            elemntsForm.onsubmit = async (e) => {
+            formObra.onsubmit = async (e) => {
                 e.preventDefault();
                 var form = document.querySelector("#formObra");
                 // var form = document.forms[0];
@@ -192,7 +192,7 @@
                     name: form.querySelector('input[name="name"]').value,
                     price: form.querySelector('input[name="price"]').value,
                     imagepath: form.querySelector('input[name="filename"]').value,
-                    forsale: form.querySelector('input[name="forsale"]').value
+                    forsale:  +form.querySelector("#forsale").selectedOptions[0].value
 
                 }
 
