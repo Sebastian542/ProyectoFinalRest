@@ -140,7 +140,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
 
         try {
@@ -226,6 +226,42 @@ public class UsersResource {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    @POST
+    @Path("/UpdatePrecio")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updatePrecio(Obra obra) {
+
+
+        // Object for handling SQL statement
+        PreparedStatement stmt = null;
+
+        try {
+
+            // Executing a SQL query
+            System.out.println("=> Updating Precio...");
+            stmt = this.conn.prepareStatement("UPDATE Obra SET price = ? WHERE idusuario = ?");
+            stmt.setString(1, String.valueOf(obra.getPrice()));
+            stmt.setInt(2, obra.getId());
+            int rowsUpdated = stmt.executeUpdate(); // executeUpdate is also used for inserting records
+
+            // Printing results
+            System.out.println("Rows updated: " + rowsUpdated + "\n");
+
+            // Closing resources
+            stmt.close();
+        } catch (SQLException se) {
+            se.printStackTrace(); // Handling errors from database
+        } finally {
+            // Cleaning-up environment
+            try {
+                if (stmt != null) stmt.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
         }
     }
 
@@ -317,7 +353,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
 
         try {

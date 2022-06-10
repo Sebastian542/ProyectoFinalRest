@@ -22,6 +22,7 @@ public class Obra {
     }
 
 
+
     public int getId() {
         return id;
     }
@@ -43,12 +44,12 @@ public class Obra {
 
 
     public float getPrice() {
+
         return price;
     }
 
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setPrice(float price) { this.price = price;
     }
 
 
