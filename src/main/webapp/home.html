@@ -102,9 +102,9 @@
         <main id="main">
             <div class="container-fluid px-4" id="contenedorrol">
 
-                <h1 id="name"> Hello </h1>
-                <h2 id="email"></h2>
-                <h3 id="role">"Your role is  </h3>
+                <h1 > Bienvenido <span id="nombreuser"></span></h1>
+
+                <h3 > Su rol es : <span id="roluser"></span></h3>
 
 
 
@@ -230,22 +230,20 @@
 
     <script>
 
+    var nombre = sessionStorage.getItem("name");
+    var cargo  = sessionStorage.getItem("role");
+    var correo = sessionStorage.getItem("email");
 
-    var nombre = localStorage.getItem("name");
-    var role = document.getElementById("role");
-    var email = document.getElementById("email");
+    console.log("El nombre es : "+nombre);
+    console.log("El rol es : "+cargo);
+    console.log("El correo es : "+correo);
 
-    document.getElementById("name").innerHTML = nombre;
+    document.getElementById('nombreuser').innerHTML = nombre ;
+    document.getElementById('roluser').innerHTML = cargo ;
 
-    nombre.innerHtml=localStorage.getItem("name");
-    role.innerText = localStorage.getItem("role");
-    email.innerText = localStorage.getItem("email")
 
-    console.log("El nombre es : "+name.innerText);
-    console.log("El rol es : "+role.innerText);
-    console.log("El rol es : "+email.innerText);
+    </script>
 
-</script>
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

@@ -155,10 +155,9 @@
         var form = document.querySelector("#formElem");
         // var form = document.forms[0];
 
-        var nombre = localStorage.getItem("name");
-        document.getElementById("name").innerHTML = nombre;
+        let name=sessionStorage.getItem("name");
 
-        nombre.innerHtml=localStorage.getItem("name");
+        console.log(name);
 
         data = {
           //  name : form.querySelector('input[name="name"]').value,
@@ -174,7 +173,6 @@
             body: JSON.stringify(data),
         })
 
-        console.log("El nombre es : "+name.innerText);
 
         console.log(data);
 

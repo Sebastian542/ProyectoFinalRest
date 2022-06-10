@@ -353,7 +353,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "123";
+        String PASS = "sebastianmp2001";
 
 
         try {
