@@ -206,11 +206,13 @@
 <script>
 
     console.log("Se ejecuta el js");
-    var name = document.getElementById("name");
+
+    var nombre = localStorage.getItem("name");
+
     var role = document.getElementById("role");
     var email = document.getElementById("email");
 
-    name.innerText = localStorage.getItem("name");
+    document.getElementById("name").innerHTML = nombre;
     role.innerText = localStorage.getItem("role");
     email.innerText = localStorage.getItem("email")
 
