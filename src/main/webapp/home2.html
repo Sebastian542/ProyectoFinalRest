@@ -101,10 +101,10 @@
             <div id="layoutSidenav_content">
                 <main id="main">
                     <div class="container-fluid px-4" id="contenedorrol">
-                    
-                        <h1 id="name"> Hello </h1>
-                        <h2 id="email"></h2>
-                        <h3 id="role">"Your role is  </h3>
+
+                        <h1 > Bienvenido <span id="nombreuser"></span></h1>
+
+                        <h3 > Su rol es : <span id="roluser"></span></h3>
                         
                         
                         
@@ -230,18 +230,17 @@
 
         <script>
 
-            console.log("Se ejecuta el js");
             var nombre = localStorage.getItem("name");
-            var role = document.getElementById("role");
-            var email = document.getElementById("email");
+            var cargo  = localStorage.getItem("role");
+            var correo = localStorage.getItem("email");
 
-            document.getElementById("name").innerHTML = nombre;
-            role.innerText = localStorage.getItem("role");
-            email.innerText = localStorage.getItem("email")
+            console.log("El nombre es : "+nombre);
+            console.log("El rol es : "+cargo);
+            console.log("El correo es : "+correo);
 
-            console.log("El nombre es : "+name.innerText);
-            console.log("El rol es : "+role.innerText);
-            console.log("El rol es : "+email.innerText);
+            document.getElementById('nombreuser').innerHTML = nombre ;
+            document.getElementById('roluser').innerHTML = cargo ;
+
 
         </script>
         </div>
