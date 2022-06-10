@@ -130,6 +130,52 @@ public class UsersResource {
     }
 
 
+    @POST
+    @Path("/crearColeccion")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createObra(Coleccion coleccion) {
+
+        String contextPath = context.getRealPath("") + File.separator;
+        Statement stmt = null;
+        String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
+        String USER = "postgres";
+        String PASS = "sebastianmp2001";
+
+
+        try {
+
+            Class.forName(JDBC_DRIVER);
+            System.out.println("Connecting to database...");
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            // Executing a SQL query
+            System.out.println("El nombre de la coleccion es  " + coleccion.getName());
+            System.out.println("La descripcion es " + coleccion.getDescripcion());
+            System.out.println("La categoria es " + coleccion.getCategory());
+
+
+
+            stmt = conn.createStatement();
+            String sql = "INSERT INTO collection (name,description,category)" +
+                    "values " + "('" + coleccion.getName() + "','" + coleccion.getDescripcion() + "','" + coleccion.getCategory() + "')";
+
+            System.out.println("comando para insertar obra ->  "+sql);
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            rs.close();
+            stmt.close();
+
+            return Response.created(UriBuilder.fromResource(UsersResource.class).path(coleccion.getName()).build())
+                    .entity(coleccion)
+                    .build();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
