@@ -190,7 +190,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
 
         try {
@@ -236,6 +236,7 @@ public class UsersResource {
     public void updatePrecio(Obra obra) {
 
 
+
         // Object for handling SQL statement
         PreparedStatement stmt = null;
 
@@ -243,7 +244,7 @@ public class UsersResource {
 
             // Executing a SQL query
             System.out.println("=> Updating Precio...");
-            stmt = this.conn.prepareStatement("UPDATE Obra SET price = ? WHERE idusuario = ?");
+            stmt = this.conn.prepareStatement("UPDATE Obra SET price = ? WHERE id = ?");
             stmt.setString(1, String.valueOf(obra.getPrice()));
             stmt.setInt(2, obra.getId());
             int rowsUpdated = stmt.executeUpdate(); // executeUpdate is also used for inserting records
@@ -286,7 +287,7 @@ public class UsersResource {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
 
-            String sql = "UPDATE  persona SET nfcoins ="+user.getNfcoins() +" WHERE idusuario=" +user.getIdusuario();
+            String sql = "UPDATE  persona SET fcoins ="+user.getfcoins() +" WHERE name =" +user.getNombre();
 
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -353,7 +354,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
 
         try {
@@ -369,6 +370,7 @@ public class UsersResource {
 
             while (rs.next()) {
                 // Extracting row values by column name
+
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 String name = rs.getString("name");

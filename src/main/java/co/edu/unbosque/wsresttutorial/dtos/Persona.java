@@ -6,16 +6,16 @@ public class Persona {
     private String nombre;
     private int telefono;
     private int idusuario;
-    private int nfcoins;
+    private int fcoins;
 
     public Persona() {
     }
 
-    public Persona(String nombre, int telefono, int idusuario, int nfcoins) {
+    public Persona(String nombre, int telefono, int idusuario, int fcoins) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.idusuario = idusuario;
-        this.nfcoins = nfcoins;
+        this.fcoins = fcoins;
     }
 
     public String getNombre() {
@@ -43,17 +43,17 @@ public class Persona {
         return idusuario;
     }
 
-    public int getNfcoins() {
-        return nfcoins;
+    public int getfcoins() {
+        return fcoins;
     }
 
-    public void setNfcoins(int nfcoins) {
-        this.nfcoins = nfcoins;
+    public void setfcoins(int nfcoins) {
+        this.fcoins = fcoins;
     }
 
     @Override
     public String toString() {
-        return "Obra [nombre=" + nombre + ", telefono=" + telefono + ", idusuario=" + idusuario + ", nfcoins=" + nfcoins
+        return "Obra [nombre=" + nombre + ", telefono=" + telefono + ", idusuario=" + idusuario + ", fcoins=" + fcoins
                 + "]";
     }
 
