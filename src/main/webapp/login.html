@@ -87,12 +87,12 @@
                 console.log(data2);
 
 
-                sessionStorage.setItem("name",data2.name);
-                console.log("Localstorage name: " +sessionStorage.getItem("name"));
-                sessionStorage.setItem("email",data2.email);
-                console.log("Localstorage email: " + sessionStorage.getItem("email"));
-                sessionStorage.setItem("role",data2.role);
-                console.log("Localstorage role: " + sessionStorage.getItem("role"));
+                localStorage.setItem("name",data2.name);
+                console.log("Localstorage name: " + localStorage.getItem("name"));
+                localStorage.setItem("email",data2.email);
+                console.log("Localstorage email: " + localStorage.getItem("email"));
+                localStorage.setItem("role",data2.role);
+                console.log("Localstorage role: " + localStorage.getItem("role"));
 
 
                 if(data2.role =="Administrador"){

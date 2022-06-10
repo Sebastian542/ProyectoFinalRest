@@ -190,7 +190,7 @@
                 var form = document.querySelector("#formObra");
                 // var form = document.forms[0];
 
-                data2 = {
+                data = {
                     name: form.querySelector('input[name="name"]').value,
                     price: form.querySelector('input[name="price"]').value,
                     imagepath: form.querySelector('input[name="filename"]').value,
@@ -209,7 +209,7 @@
                 console.log(data)
 
 //                window.alert("Obra registrada existosamente ");
-                let text = await response.text(); // read response body as text
+                let text = await response.json(); // read response body as text
                document.querySelector("#decoded").innerHTML= text;
 
             }}
