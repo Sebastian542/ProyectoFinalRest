@@ -234,6 +234,8 @@ public class UsersResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public void updatePrecio(Obra obra) {
+
+
         // Object for handling SQL statement
         PreparedStatement stmt = null;
 
@@ -241,7 +243,7 @@ public class UsersResource {
 
             // Executing a SQL query
             System.out.println("=> Updating Precio...");
-            stmt = this.conn.prepareStatement("UPDATE Obra SET price = ? WHERE idNumber = ?");
+            stmt = this.conn.prepareStatement("UPDATE Obra SET price = ? WHERE idusuario = ?");
             stmt.setString(1, String.valueOf(obra.getPrice()));
             stmt.setInt(2, obra.getId());
             int rowsUpdated = stmt.executeUpdate(); // executeUpdate is also used for inserting records
@@ -351,7 +353,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "sebastianmp2001";
+        String PASS = "123";
 
 
         try {
