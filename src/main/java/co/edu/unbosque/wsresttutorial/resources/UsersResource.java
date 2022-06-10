@@ -240,7 +240,7 @@ public class UsersResource {
         try {
 
             // Executing a SQL query
-            System.out.println("=> Updating owner...");
+            System.out.println("=> Updating Precio...");
             stmt = this.conn.prepareStatement("UPDATE Obra SET price = ? WHERE idNumber = ?");
             stmt.setString(1, String.valueOf(obra.getPrice()));
             stmt.setInt(2, obra.getId());
