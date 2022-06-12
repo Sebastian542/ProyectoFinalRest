@@ -35,7 +35,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "123";
+        String PASS = "1234";
 
 
         try {
@@ -85,7 +85,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "123";
+        String PASS = "1234";
 
 
         try {
@@ -140,7 +140,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "123";
+        String PASS = "1234";
 
 
         try {
@@ -190,7 +190,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "123";
+        String PASS = "1234";
 
 
         try {
@@ -277,7 +277,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "123";
+        String PASS = "1234";
 
         try {
             //  user = new UserService().createUser(user.getUsername(),user.getPassword(), user.getRole(), contextPath);
@@ -318,7 +318,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "123";
+        String PASS = "1234";
 
         try {
 
@@ -329,8 +329,24 @@ public class UsersResource {
             // Executing a SQL query
 
             stmt = conn.createStatement();
+
             String sql = "INSERT INTO  userapp (email,password,name,role) values " + "('" + user.getEmail()+ "','" + user.getPassword() + "','" + user.getName() + "','" + user.getRole()+"')";
+
             ResultSet rs = stmt.executeQuery(sql);
+
+            rs.close();
+            stmt.close();
+
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            // Executing a SQL query
+
+            stmt = conn.createStatement();
+            System.out.println("Entre a la segunda sql");
+
+            String sql2 = "INSERT INTO  wallethistory (userapp,fcoins) values " + "('" + user.getEmail()+ "', +0)";
+            rs = stmt.executeQuery(sql2);
+
             rs.close();
             stmt.close();
 
@@ -354,7 +370,7 @@ public class UsersResource {
         Statement stmt = null;
         String DB_URL = "jdbc:postgresql://localhost/proyectofinal";
         String USER = "postgres";
-        String PASS = "123";
+        String PASS = "1234";
 
 
         try {

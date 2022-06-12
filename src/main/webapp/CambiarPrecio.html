@@ -133,7 +133,7 @@
                                 </div>
 
                                 <div class="form-group first">
-                                    <label for="nfcoins">Nuevo Precio</label>
+                                    <label for="price">Nuevo Precio</label>
                                     <input type="text" name="price" class="form-control"placeholder="Ingrese en nfcoins " id="price"  />
                                 </div>
 
@@ -160,13 +160,15 @@
     formElem.onsubmit = async (e) => {
         e.preventDefault();
         var form = document.querySelector("#formElem");
-        // var form = document.forms[0];
+
+
 
         data = {
-            idusuario : form.querySelector('input[name="idusuario"]').value,
-            nfcoins : form.querySelector('input[name="nfcoins"]').value
+            name :localStorage.getItem("name"),
+            nfcoins : form.querySelector('input[name="price"]').value
 
         }
+        console.log(data)
 
         let response = await fetch('./api/users/recargar', {
             method: 'POST', // or 'PUT'

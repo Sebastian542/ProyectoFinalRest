@@ -143,8 +143,8 @@
                                     <label for="forsale">En venta</label>
 
                                     <select name="forsale" id="forsale" class="form-control">
-                                        <option value="0" >No</option>
-                                        <option value="1">Si</option>
+                                        <option value=false >No</option>
+                                        <option value=true>Si</option>
                                     </select>
 
                                 </div>
@@ -189,12 +189,14 @@
                 e.preventDefault();
                 var form = document.querySelector("#formObra");
                 // var form = document.forms[0];
+               // let stringValue = form.querySelector("#forsale").selectedOptions[0].value;
+             //  let boolValue = JSON.parse(stringValue); //
 
                 data = {
                     name: form.querySelector('input[name="name"]').value,
                     price: form.querySelector('input[name="price"]').value,
                     imagepath: form.querySelector('input[name="filename"]').value,
-                   forsale:  +form.querySelector("#forsale").selectedOptions[0].value
+                    forsale : form.querySelector("#forsale").selectedOptions[0].value === 'true'
 
                 }
 
