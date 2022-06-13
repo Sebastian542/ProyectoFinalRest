@@ -196,8 +196,8 @@
                     name: form.querySelector('input[name="name"]').value,
                     price: form.querySelector('input[name="price"]').value,
                     imagepath: form.querySelector('input[name="filename"]').value,
-                    forsale : form.querySelector("#forsale").selectedOptions[0].value
-
+                    forsale : form.querySelector("#forsale").selectedOptions[0].value,
+                    email:localStorage.getItem("email")
                 }
 
                 let response = await fetch('./api/users/CrearObra', {

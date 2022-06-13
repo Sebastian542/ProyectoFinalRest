@@ -112,9 +112,9 @@ public class UsersResource {
                 String imagepath=rs.getString("imagepath");
                 boolean forsale=rs.getBoolean("forsale");
                 int collection=rs.getInt("collection");
+                String email=rs.getString("email");
 
-
-                userApps.add(new Obra(id,name,price,imagepath,forsale,collection));
+                userApps.add(new Obra(id,name,price,imagepath,forsale,collection,email));
             }
 
 
@@ -184,7 +184,7 @@ public class UsersResource {
     @Path("/CrearObra")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createObra(Obra obra) {
+    public Response createObra(Obra obra) throws SQLException {
 
         String contextPath = context.getRealPath("") + File.separator;
         Statement stmt = null;
@@ -206,6 +206,7 @@ public class UsersResource {
             System.out.println("La url de la imagen es  " + obra.getImagepath());
             System.out.println("Se encuentra a la venta?  " + obra.getForsale());
             System.out.println("Le coleccion es  :  " + obra.getCollection());
+            System.out.println("El email es  :  " + obra.getEmail());
 
 
             stmt = conn.createStatement();
@@ -225,6 +226,14 @@ public class UsersResource {
                     .entity(obra)
                     .build();
         } catch (SQLException e) {
+
+            String sql2 = "INSERT INTO  ownership (userapp) values " + "('" +obra.getEmail()+ "')";
+            System.out.println("el insert dice "+sql2);
+
+            ResultSet rs2 = stmt.executeQuery(sql2);
+
+            rs2.close();
+
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -346,7 +355,7 @@ public class UsersResource {
                     .build();
         } catch (SQLException e) {
 
-            System.out.println("aca sera");
+
 
             String sql2 = "INSERT INTO  wallethistory (userapp,fcoins) values " + "('" + user.getEmail()+ "', +0)";
             ResultSet rs2 = stmt.executeQuery(sql2);

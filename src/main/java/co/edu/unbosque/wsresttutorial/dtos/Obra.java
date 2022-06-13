@@ -9,9 +9,11 @@ public class Obra {
     private boolean forsale;
     private int collection;
 
+    private String email;
+
     public Obra() {
     }
-    public Obra(int id, String name, float price, String imagepath, boolean forsale, int collection) {
+    public Obra(int id, String name, float price, String imagepath, boolean forsale, int collection,String email) {
 
         this.id = id;
         this.name = name;
@@ -19,10 +21,17 @@ public class Obra {
         this.imagepath = imagepath;
         this.forsale = forsale;
         this.collection = collection;
+        this.email=email;
+    }
+
+    public void setEmail(String email) {
+        this.email =email;
     }
 
 
-
+    public String getEmail() {
+        return email;
+    }
     public int getId() {
         return id;
     }
