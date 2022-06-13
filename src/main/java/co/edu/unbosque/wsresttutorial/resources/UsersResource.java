@@ -331,24 +331,16 @@ public class UsersResource {
             stmt = conn.createStatement();
 
             String sql = "INSERT INTO  userapp (email,password,name,role) values " + "('" + user.getEmail()+ "','" + user.getPassword() + "','" + user.getName() + "','" + user.getRole()+"')";
-
-            ResultSet rs = stmt.executeQuery(sql);
-
-            rs.close();
-            stmt.close();
-
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-
-            // Executing a SQL query
-
-            stmt = conn.createStatement();
-            System.out.println("Entre a la segunda sql");
-
             String sql2 = "INSERT INTO  wallethistory (userapp,fcoins) values " + "('" + user.getEmail()+ "', +0)";
-            rs = stmt.executeQuery(sql2);
 
-            rs.close();
+
+           // ResultSet rs = stmt.executeQuery(sql);
+            ResultSet rs2 = stmt.executeQuery(sql2);
+
+            rs2.close();
+
             stmt.close();
+
 
             return Response.created(UriBuilder.fromResource(UsersResource.class).path(user.getName()).build())
                     .entity(user)
@@ -358,6 +350,7 @@ public class UsersResource {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
     }
 
 
