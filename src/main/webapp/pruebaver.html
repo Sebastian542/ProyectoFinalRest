@@ -3,26 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="galeria.css">
-
 </head>
 <body>
-<style>
-    .myStyle {
-        background-color: orange;
-        padding: 5px;
-    }
-</style>
 
 <div id="obras_conteiner">
-</div>
-
 
 </div>
 
 
 <script>
     var conteiner = document.getElementById("obras_conteiner");
+
+
 
     fetch("./api/users/verObras", {
         method: "GET",
@@ -35,15 +27,10 @@
         .then(data => {
             console.log(data)
             data.map(obra => {
-                let contenedor=document.createElement("div");
 
                 let img= document.createElement("img");
                 img.src = "./assets/img/Obras/" + obra.imagenurl+".jpg";
-
-
-                contenedor.appendChild(img)
-                conteiner.appendChild(contenedor);
-
+                conteiner.appendChild(img);
             });
         });
 

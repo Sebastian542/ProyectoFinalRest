@@ -106,8 +106,8 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-            <center>
-                <h1 class="mt-4">  Bienvenido al modulo  de registro de obras de arte</h1>
+                <center>
+                    <h1 class="mt-4">  Bienvenido al modulo  de registro de obras de arte</h1>
                 </center>
                 <div class="container">
                     <div class="row align-items-center justify-content-center">
@@ -156,66 +156,66 @@
                     </div>
                 </div>
             </div>
-          </main>
+        </main>
         <div>
-      </div>
+        </div>
     </div>
 </div>
 
 
-    <div id="encoded"></div>
+<div id="encoded"></div>
 
-    <script>
-        let elemntsForm = document.getElementById("formObra");
+<script>
+    let elemntsForm = document.getElementById("formObra");
 
-        // Triggering event when submit
-        elemntsForm.onsubmit = async (e) => {
-            e.preventDefault();
+    // Triggering event when submit
+    elemntsForm.onsubmit = async (e) => {
+        e.preventDefault();
 
 // Making the request
-            let response = await fetch("./api/users/fabian/avatars", {
-                method: "POST",
-                body: new FormData(elemntsForm)
-            });
+        let response = await fetch("./api/users/fabian/avatars", {
+            method: "POST",
+            body: new FormData(elemntsForm)
+        });
 
 // Extracting response as text
-      //      let message = await response.text();
+        //      let message = await response.text();
 
-            alert("Obra subida correctamente");
+        alert("Obra subida correctamente");
 
 
 
-            formObra.onsubmit = async (e) => {
-                e.preventDefault();
-                var form = document.querySelector("#formObra");
-                // var form = document.forms[0];
-               // let stringValue = form.querySelector("#forsale").selectedOptions[0].value;
-             //  let boolValue = JSON.parse(stringValue); //
+        formObra.onsubmit = async (e) => {
+            e.preventDefault();
+            var form = document.querySelector("#formObra");
+            // var form = document.forms[0];
+            // let stringValue = form.querySelector("#forsale").selectedOptions[0].value;
+            //  let boolValue = JSON.parse(stringValue); //
 
-                data = {
-                    name: form.querySelector('input[name="name"]').value,
-                    price: form.querySelector('input[name="price"]').value,
-                    imagepath: form.querySelector('input[name="filename"]').value,
-                    forsale : form.querySelector("#forsale").selectedOptions[0].value,
-                    email:localStorage.getItem("email")
-                }
+            data = {
+                name: form.querySelector('input[name="name"]').value,
+                price: form.querySelector('input[name="price"]').value,
+                imagepath: form.querySelector('input[name="filename"]').value,
+                forsale : form.querySelector("#forsale").selectedOptions[0].value,
+                email:localStorage.getItem("email")
+            }
 
-                let response = await fetch('./api/users/CrearObra', {
-                    method: 'POST', // or 'PUT'
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
+            let response = await fetch('./api/users/CrearObra', {
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
 
-                })
-                console.log(data)
+            })
+            console.log(data)
 
 //                window.alert("Obra registrada existosamente ");
-                let text = await response.json(); // read response body as text
-               document.querySelector("#decoded").innerHTML= text;
+            let text = await response.json(); // read response body as text
+            document.querySelector("#decoded").innerHTML= text;
 
-            }}
-    </script>
+        }}
+</script>
 
 </body>
 </html>

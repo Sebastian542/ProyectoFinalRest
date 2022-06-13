@@ -78,7 +78,7 @@ public class UsersResource {
     @GET
     @Path("/verObras")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listObras(Userdb userx) {
+    public Response listObras(Obra2 obra2) {
 
 
         String contextPath = context.getRealPath("") + File.separator;
@@ -90,7 +90,7 @@ public class UsersResource {
 
         try {
 
-            List<Obra> userApps = new ArrayList<Obra>();
+            List<Obra2> userApps = new ArrayList<Obra2>();
 
 
             Class.forName(JDBC_DRIVER);
@@ -112,9 +112,9 @@ public class UsersResource {
                 String imagepath=rs.getString("imagepath");
                 boolean forsale=rs.getBoolean("forsale");
                 int collection=rs.getInt("collection");
-                String email=rs.getString("email");
 
-                userApps.add(new Obra(id,name,price,imagepath,forsale,collection,email));
+
+                userApps.add(new Obra2(id,name,price,imagepath,forsale,collection));
             }
 
 
@@ -313,7 +313,7 @@ public class UsersResource {
             throw new RuntimeException(e);
 
         }
-    return null;
+        return null;
 
     }
 
@@ -343,7 +343,7 @@ public class UsersResource {
 
             String sql = "INSERT INTO  userapp (email,password,name,role) values " + "('" + user.getEmail()+ "','" + user.getPassword() + "','" + user.getName() + "','" + user.getRole()+"')";
 
-           // ResultSet rs = stmt.executeQuery(sql);
+            // ResultSet rs = stmt.executeQuery(sql);
             ResultSet rs = stmt.executeQuery(sql);
 
             rs.close();
@@ -388,7 +388,7 @@ public class UsersResource {
 
 
         try {
-           // List<User> users = new UserService().getUsers();
+            // List<User> users = new UserService().getUsers();
             List<Userdb> userApps = new ArrayList<Userdb>();
 
             Class.forName(JDBC_DRIVER);
@@ -481,7 +481,7 @@ public class UsersResource {
         String contextPath = context.getRealPath("") + File.separator;
 
 
-   return null;
+        return null;
 
     }
 }
