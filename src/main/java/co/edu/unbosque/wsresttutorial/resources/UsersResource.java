@@ -253,7 +253,10 @@ public class UsersResource {
         try {
 
             // Executing a SQL query
-            System.out.println("=> Updating Precio...");
+            System.out.println("=> Updating wallet...");
+
+
+
             stmt = this.conn.prepareStatement("UPDATE wallethistory SET price = ? WHERE id = ?");
             stmt.setFloat(1,  obra.getPrice());
             stmt.setString(2, obra.getEmail());
@@ -277,11 +280,12 @@ public class UsersResource {
     }
 
 
+
     @POST
-    @Path("/recargar")
+    @Path("/recargarCuenta")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response recargar(Persona user) {
+    public Response recargar(Wallet wallet) {
 
         String contextPath = context.getRealPath("") + File.separator;
         Statement stmt = null;
@@ -290,15 +294,18 @@ public class UsersResource {
         String PASS = "1234";
 
         try {
-            //  user = new UserService().createUser(user.getUsername(),user.getPassword(), user.getRole(), contextPath);
 
             Class.forName(JDBC_DRIVER);
             System.out.println("Connecting to database...");
+
+            System.out.println("El valor enviado es :" + wallet.getFcoins());
+            System.out.println("El correo del usuario es :  " +wallet.getUserapp());
+
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
+            String sql = "UPDATE  wallethistory SET fcoins ="+wallet.getFcoins() +" WHERE userapp=" +"'"+wallet.getUserapp()+"'";
 
-            String sql = "UPDATE  persona SET fcoins ="+user.getfcoins() +" WHERE name =" +user.getNombre();
-
+            System.out.println("Envie"+sql);
             ResultSet rs = stmt.executeQuery(sql);
 
             rs.close();
