@@ -3,4 +3,4 @@
 
 Integrantes:
 
-Juan Sebastian Muñoz-Esteban Hernandez
+Sebastian Muños - Nicloas Camacho - Esteban Hernandez
