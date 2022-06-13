@@ -215,7 +215,6 @@ public class UsersResource {
 
             System.out.println("comando para insertar obra ->  "+sql);
 
-            obra.getForsale();
 
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -255,9 +254,9 @@ public class UsersResource {
 
             // Executing a SQL query
             System.out.println("=> Updating Precio...");
-            stmt = this.conn.prepareStatement("UPDATE Obra SET price = ? WHERE id = ?");
-            stmt.setString(1, String.valueOf(obra.getPrice()));
-            stmt.setInt(2, obra.getId());
+            stmt = this.conn.prepareStatement("UPDATE wallethistory SET price = ? WHERE id = ?");
+            stmt.setFloat(1,  obra.getPrice());
+            stmt.setString(2, obra.getEmail());
             int rowsUpdated = stmt.executeUpdate(); // executeUpdate is also used for inserting records
 
             // Printing results

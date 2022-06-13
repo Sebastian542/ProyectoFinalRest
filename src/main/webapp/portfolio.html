@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio - Sailor Bootstrap Template</title>
+  <title>Portfolio </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -103,14 +103,9 @@
         </div>
       </div>
 
-      <div>
-
-      <p>Esto es una prueba 1</p>
-      <div>
 
           <div class="portfolio-info" id="obras_conteiner">
             <h4>App 1</h4>
-            <p>App</p>
 
             </div>
              </div>
@@ -139,19 +134,7 @@
         <div class="col-lg-3 col-md-6">
           <div class="footer-info">
             <h3>Sailor</h3>
-            <p>
-              A108 Adam Street <br>
-              NY 535022, USA<br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
+
           </div>
         </div>
 
@@ -170,15 +153,7 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="copyright">
-      &copy; Copyright <strong><span>Sailor</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-    </div>
-  </div>
+
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -193,8 +168,6 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
-
-
 
 
 <script>
@@ -212,18 +185,25 @@
           .then(response => response.json())
           .then(data => {
             console.log(data)
-            data.map(obra => {
+            data.map(obra2 => {
 
-              let img= document.createElement("img");
-              img.src = "./assets/img/Obras/" + obra.imagenurl+".jpg";
-              img.height = 100;
-              img.classList="portfolio-wrap";
+              let img= document.createElement("img")
+              let nombre= document.createElement("nombre")
+              let precio= document.createElement("precio")
 
-              conteiner.appendChild(img);
+
+              let contenedor=document.createElement("div");
+
+              img.src = "./assets/img/Obras/" +obra2.imagepath+".jpg";
+              img.width = 200;
+
+              contenedor.appendChild(img)
+              // contenedor.appendChild(autor)
+              //  contenedor.appendChild(obra2.name)
+              //contenedor.appendChild(obra2.price)
+              conteiner.appendChild(contenedor);
             });
           });
-
-
 </script>
 </body>
 

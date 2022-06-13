@@ -8,6 +8,8 @@
 
 <div id="obras_conteiner">
 
+    <div id="autor">Prueba</diV>
+
 </div>
 
 
@@ -25,16 +27,26 @@
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            data.map(obra => {
 
-                let img= document.createElement("img");
-                img.src = "./assets/img/Obras/" + obra.imagenurl+".jpg";
-                conteiner.appendChild(img);
+            data.map(obra2 => {
+
+                let img= document.createElement("img")
+                let nombre= document.createElement("nombre")
+                let precio= document.createElement("precio")
+
+
+                let contenedor=document.createElement("div");
+
+                img.src = "./assets/img/Obras/" +obra2.imagepath+".jpg";
+
+
+                contenedor.appendChild(img)
+               // contenedor.appendChild(autor)
+              //  contenedor.appendChild(obra2.name)
+                //contenedor.appendChild(obra2.price)
+                conteiner.appendChild(contenedor);
             });
         });
-
-
 </script>
 
 
