@@ -209,10 +209,12 @@ public class UsersResource {
 
 
             stmt = conn.createStatement();
-            String sql = "INSERT INTO art (name,price,imagepath)" +
-                    "values " + "('" + obra.getName() + "'," + obra.getPrice() + "," + obra.getImagepath() + ")";
+            String sql = "INSERT INTO art (name,price,imagepath,forsale)" +
+                    "values " + "('" + obra.getName() + "'," + obra.getPrice() + ",'" + obra.getImagepath()+ "'," + obra.getForsale()+")";
 
             System.out.println("comando para insertar obra ->  "+sql);
+
+            obra.getForsale();
 
             ResultSet rs = stmt.executeQuery(sql);
 

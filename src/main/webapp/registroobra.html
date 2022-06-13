@@ -143,8 +143,8 @@
                                     <label for="forsale">En venta</label>
 
                                     <select name="forsale" id="forsale" class="form-control">
-                                        <option value=false >No</option>
-                                        <option value=true>Si</option>
+                                        <option value="0" >No</option>
+                                        <option value="1" >Si</option>
                                     </select>
 
                                 </div>
@@ -193,10 +193,10 @@
              //  let boolValue = JSON.parse(stringValue); //
 
                 data = {
-                    name: form.querySelector('input[name="name"]').value,
+                    name: localStorage.getItem("name"),
                     price: form.querySelector('input[name="price"]').value,
                     imagepath: form.querySelector('input[name="filename"]').value,
-                    forsale : form.querySelector("#forsale").selectedOptions[0].value === 'true'
+                    forsale : form.querySelector("#forsale").selectedOptions[0].value
 
                 }
 
