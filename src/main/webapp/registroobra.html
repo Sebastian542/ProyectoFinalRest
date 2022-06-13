@@ -193,7 +193,7 @@
              //  let boolValue = JSON.parse(stringValue); //
 
                 data = {
-                    name: localStorage.getItem("name"),
+                    name: form.querySelector('input[name="name"]').value,
                     price: form.querySelector('input[name="price"]').value,
                     imagepath: form.querySelector('input[name="filename"]').value,
                     forsale : form.querySelector("#forsale").selectedOptions[0].value
