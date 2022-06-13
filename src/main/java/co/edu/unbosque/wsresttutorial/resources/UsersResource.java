@@ -312,7 +312,7 @@ public class UsersResource {
     @Path("/CrearUsuario")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createUser(User user) {
+    public Response createUser(User user) throws SQLException {
 
         String contextPath = context.getRealPath("") + File.separator;
         Statement stmt = null;
@@ -331,14 +331,11 @@ public class UsersResource {
             stmt = conn.createStatement();
 
             String sql = "INSERT INTO  userapp (email,password,name,role) values " + "('" + user.getEmail()+ "','" + user.getPassword() + "','" + user.getName() + "','" + user.getRole()+"')";
-            String sql2 = "INSERT INTO  wallethistory (userapp,fcoins) values " + "('" + user.getEmail()+ "', +0)";
-
 
            // ResultSet rs = stmt.executeQuery(sql);
-            ResultSet rs2 = stmt.executeQuery(sql2);
+            ResultSet rs = stmt.executeQuery(sql);
 
-            rs2.close();
-
+            rs.close();
             stmt.close();
 
 
@@ -346,10 +343,23 @@ public class UsersResource {
                     .entity(user)
                     .build();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+            System.out.println("aca sera");
+
+            String sql2 = "INSERT INTO  wallethistory (userapp,fcoins) values " + "('" + user.getEmail()+ "', +0)";
+            ResultSet rs2 = stmt.executeQuery(sql2);
+
+            rs2.close();
+            //throw new RuntimeException(e);
+            return Response.created(UriBuilder.fromResource(UsersResource.class).path(user.getName()).build())
+                    .entity(user)
+                    .build();
+
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+
+
 
     }
 
