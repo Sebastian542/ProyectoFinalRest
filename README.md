@@ -1,3 +1,3 @@
 # ProyectoFinalRest
 
-Sebastian Muños - Nicloas Camacho - Esteban Hernandez
+Sebastian Muñoz- Esteban Hernandez
