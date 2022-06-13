@@ -1,3 +1,7 @@
 # ProyectoFinalRest
 
-Sebastian Muñoz- Esteban Hernandez
+
+Integrantes:
+
+Juan Sebastian Muñoz
+Esteban Hernandez
