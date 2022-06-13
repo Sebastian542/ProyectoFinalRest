@@ -299,6 +299,7 @@ public class UsersResource {
             System.out.println("Connecting to database...");
 
             System.out.println("El valor enviado es :" + wallet.getFcoins());
+
             System.out.println("El correo del usuario es :  " +wallet.getUserapp());
 
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
